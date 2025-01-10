@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DB_NAME="Identity"
-DB_USER="admin"
-DB_PASS="GIGA258"
+DB_USER=$1
+DB_PASS=$2
+DB_NAME=$3
 
 RESULT=$(psql -U $DB_USER -tc "SELECT 1 FROM pg_database WHERE datname = '$DB_NAME'")
 if [ -z "$RESULT" ]; then
