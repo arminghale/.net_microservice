@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {}
+    "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {
+    "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
+        "projectUniqueName": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
         "projectName": "Manage.Data.Management",
-        "projectPath": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
+        "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
         "packagesPath": "C:\\Users\\Armin Mohammadi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\obj\\",
+        "outputPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Armin Mohammadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\Software2\\SDK's\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj": {
-                "projectPath": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj"
+              "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj": {
+                "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj"
               }
             }
           }
@@ -49,7 +48,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -59,13 +58,17 @@
               "target": "Package",
               "version": "[2.6.1, )"
             },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[8.0.16, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[8.0.11, )"
+              "version": "[8.0.16, )"
             },
             "Microsoft.Extensions.Hosting.Abstractions": {
               "target": "Package",
@@ -92,21 +95,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj": {
+    "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj",
+        "projectUniqueName": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj",
         "projectName": "Manage.Data.Public",
-        "projectPath": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj",
+        "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj",
         "packagesPath": "C:\\Users\\Armin Mohammadi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Armin Mohammadi\\source\\repos\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\obj\\",
+        "outputPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Armin Mohammadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -118,7 +121,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\Software2\\SDK's\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -137,7 +139,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -149,7 +151,7 @@
             },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.3.0, )"
             },
             "Minio": {
               "target": "Package",
@@ -157,7 +159,7 @@
             },
             "SixLabors.ImageSharp": {
               "target": "Package",
-              "version": "[3.1.6, )"
+              "version": "[3.1.8, )"
             }
           },
           "imports": [
@@ -176,7 +178,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

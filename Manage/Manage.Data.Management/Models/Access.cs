@@ -8,6 +8,8 @@
         public int ServiceId { get; set; }
         public int TenantId { get; set; }
         public int type { get; set; }
-        public virtual Action? Action { get; set; }
+        public required string ActionName { get; set; }
+        public required string ActionURL { get; set; }
+        public required string ActionType { get; set; }
     }
 }

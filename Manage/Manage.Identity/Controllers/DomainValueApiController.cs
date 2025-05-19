@@ -5,6 +5,7 @@ using Manage.Data.Management.Models;
 using Manage.Data.Management.Repository;
 using Manage.Data.Public;
 using Manage.Data.Public.Authorization;
+using Manage.Identity.Middlewares;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Minio.DataModel;
@@ -13,7 +14,7 @@ using System.Text.Json;
 
 namespace Manage.Identity.Controllers
 {
-    [ClaimRequirement]
+    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
@@ -66,7 +67,7 @@ namespace Manage.Identity.Controllers
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    list = list.Where(w => w.Value.Contains(search));
+                    list = list.Where(w => w.Value.ToLower().Contains(search.ToLower()));
                 }
 
                 return Content(JsonSerializer.Serialize(list.Select(w => new DomainValueList(w)).ToList()), "application/json", Encoding.UTF8);

@@ -15,6 +15,6 @@ namespace Manage.Data.Management.Models
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
 
-        public virtual IEnumerable<ActionGroup> ActionGroups { get; set; } = Enumerable.Empty<ActionGroup>();
+        public virtual ICollection<ActionGroup> ActionGroups { get; set; } = new List<ActionGroup>();
     }
 }

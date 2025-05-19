@@ -15,8 +15,8 @@ namespace Manage.Data.Management.Models
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
 
-        public virtual IEnumerable<UserRole> UserRoles { get; set; } = Enumerable.Empty<UserRole>();
-        public virtual IEnumerable<RACC> RACCs { get; set; } = Enumerable.Empty<RACC>();
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+        public virtual ICollection<RACC> RACCs { get; set; } = new List<RACC>();
 
     }
 }

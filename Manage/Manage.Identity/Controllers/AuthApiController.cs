@@ -6,6 +6,7 @@ using Manage.Data.Management.Repository;
 using Manage.Data.Public;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using System.ComponentModel.DataAnnotations;
@@ -29,13 +30,16 @@ namespace Manage.Identity.Controllers
         private readonly ICache _cache;
         private readonly ISMS _sms;
         private readonly ISendMail _email;
+        private readonly int SMSExpirationMin = int.Parse(Environment.GetEnvironmentVariable("SMSExpirationMin"));
+        private readonly int EmailExpirationMin = int.Parse(Environment.GetEnvironmentVariable("EmailExpirationMin"));
+        private readonly int TokenExpirationMin = int.Parse(Environment.GetEnvironmentVariable("TokenExpirationMin"));
         public AuthApiController(IUser _user, IAccess _access, IUserRole _userRole
             , ICache _cache, ISMS _sms, ISendMail _email, ITenant _tenant)
         {
+            this._cache = _cache;
             this._user = _user;
             this._userRole = _userRole;
             this._access = _access;
-            this._cache = _cache;
             this._sms = _sms;
             this._email = _email;
             this._tenant = _tenant;
@@ -63,9 +67,9 @@ namespace Manage.Identity.Controllers
                 if (data != null && !data.validate)
                 {
                     var timeDiff = DateTime.Now - data.date;
-                    if (timeDiff.Minutes < 2)
+                    if (timeDiff.Minutes < SMSExpirationMin)
                     {
-                        return StatusCode(208, new CodeResponse((int)(120 - timeDiff.TotalSeconds), "Text has been sent, try again later"));
+                        return StatusCode(208, new CodeResponse((int)(SMSExpirationMin*60 - timeDiff.TotalSeconds), "Text has been sent, try again later"));
                     }
                     _cache.RemoveData(phonenumber);
                 }
@@ -74,7 +78,7 @@ namespace Manage.Identity.Controllers
 
                 if (result >= 2000)
                 {
-                    _cache.SetData<SMSCodeInfo>(phonenumber, new SMSCodeInfo(phonenumber, DateTime.Now, false), 120);
+                    _cache.SetData<SMSCodeInfo>(phonenumber, new SMSCodeInfo(phonenumber, DateTime.Now, false), SMSExpirationMin);
                     return Content(JsonSerializer.Serialize(new CodeResponse(120)), "application/json", Encoding.UTF8);
                 }
                 if (result == 8)
@@ -119,7 +123,7 @@ namespace Manage.Identity.Controllers
                 if (!validateCode)
                 {
                     var timeDiff = DateTime.Now - data.date;
-                    return Conflict(new CodeResponse((int)(120 - timeDiff.TotalSeconds), "Wrong code"));
+                    return Conflict(new CodeResponse((int)(SMSExpirationMin*60 - timeDiff.TotalSeconds), "Wrong code"));
                 }
 
 
@@ -237,7 +241,7 @@ namespace Manage.Identity.Controllers
                         return BadRequest(new { message = "Its been more than 30 minutes since your phonenumber validated, try again" });
                     }
 
-                    User user = await _user.GetByPhonenumber(register.phonenumber);
+                    User? user = await _user.GetByPhonenumber(register.phonenumber);
                     if (user == null)
                     {
                         return BadRequest(new { message = "Request to send text" });
@@ -263,7 +267,7 @@ namespace Manage.Identity.Controllers
                     {
                         return BadRequest(new { message = "Different password and re-password" });
                     }
-                    if (register.password.Length < 8)
+                    if (register.password?.Length < 8)
                     {
                         return BadRequest(new { message = "Password must be more than 8 character" });
                     }
@@ -279,6 +283,7 @@ namespace Manage.Identity.Controllers
                     user.Password = Hash.Hashing(register.password);
                     user.PhonenumberValidation = "YES";
                     user.Validation = "YES";
+                    user.Token = _user.TokenGenerator();
                     _user.Update(user);
                     await _user.Save();
 
@@ -378,16 +383,16 @@ namespace Manage.Identity.Controllers
                 if (data != null)
                 {
                     var timeDiff = DateTime.Now - data.date;
-                    if (timeDiff.Minutes < 2)
+                    if (timeDiff.Minutes < EmailExpirationMin)
                     {
-                        return StatusCode(208, new CodeResponse((int)(120 - timeDiff.TotalSeconds), "Email has been sent, try again later"));
+                        return StatusCode(208, new CodeResponse((int)(EmailExpirationMin*60 - timeDiff.TotalSeconds), "Email has been sent, try again later"));
                     }
                     _cache.RemoveData(email.email);
                 }
 
                 Random generator = new Random();
                 var code = generator.Next(0, 1000000).ToString("D6");
-                _cache.SetData<EmailCodeInfo>(email.email, new EmailCodeInfo(email.email, DateTime.Now, code), 120);
+                _cache.SetData<EmailCodeInfo>(email.email, new EmailCodeInfo(email.email, DateTime.Now, code), EmailExpirationMin);
                 _email.Send(new string[] { email.email }, "Code " + tenant.Title, code);
                 return Content(JsonSerializer.Serialize(new CodeResponse(120)), "application/json", Encoding.UTF8);
             }
@@ -430,7 +435,7 @@ namespace Manage.Identity.Controllers
                 if (data.code != email.code)
                 {
                     var timeDiff = DateTime.Now - data.date;
-                    return Conflict(new CodeResponse((int)(120 - timeDiff.TotalSeconds), "Wrong code"));
+                    return Conflict(new CodeResponse((int)(EmailExpirationMin*60 - timeDiff.TotalSeconds), "Wrong code"));
                 }
 
                 _cache.RemoveData(email.email);
@@ -534,25 +539,30 @@ namespace Manage.Identity.Controllers
 
             List<Claim> claims = new List<Claim>();
 
-            claims.Add(new Claim(ClaimTypes.Name, user.Username, ClaimValueTypes.String, Environment.GetEnvironmentVariable("JWT_ISSUER")));
-            //userid
-            if (user.Id > 0)
-            {
-                claims.Add(new Claim("userid", user.Id.ToString()));
+            //claims.Add(new Claim(ClaimTypes.Name, user.Username, ClaimValueTypes.String, Environment.GetEnvironmentVariable("JWT_ISSUER")));
+            ////userid
+            //if (user.Id > 0)
+            //{
+            //    claims.Add(new Claim("userid", user.Id.ToString()));
 
-                user.LastLoginDate = System.DateTime.Now;
-                _user.Update(user);
-                await _user.Save();
+            //    user.LastLoginDate = System.DateTime.Now;
+            //    _user.Update(user);
+            //    await _user.Save();
+            //}
+            claims.Add(new Claim("tenant", tenantid.ToString()));
+            if (!string.IsNullOrEmpty(user.Token))
+            {
+                claims.Add(new Claim(ClaimTypes.Authentication, user.Token));
             }
 
-            var accesses = _access.GetByUserAndTenant(user.Id,tenantid);
-            foreach (var item in accesses)
-            {
-                claims.Add(new Claim($"{item.Action.Type}:{tenantid}{item.Action.URL}", ""));
-            }
+            //var accesses =await _access.GetByUserAndTenant(user.Id,tenantid);
+            //foreach (var item in accesses)
+            //{
+            //    claims.Add(new Claim($"{item.Action.Type}:{tenantid}{item.Action.URL}", ""));
+            //}
 
             var tokeOptions = new JwtSecurityToken(
-                  expires: DateTime.Now.AddMonths(1),
+                  expires: DateTime.Now.AddMinutes(TokenExpirationMin),
                   issuer: Environment.GetEnvironmentVariable("JWT_ISSUER"),
                   audience: Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
                   claims: claims,

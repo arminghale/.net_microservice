@@ -8,11 +8,12 @@ using Asp.Versioning;
 using Manage.Data.Management.DTO.Domain;
 using Manage.Data.Management.Models;
 using Manage.Data.Public.Authorization;
+using Manage.Identity.Middlewares;
 
 
 namespace Manage.Identity.Controllers
 {
-    [ClaimRequirement]
+    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
@@ -40,7 +41,7 @@ namespace Manage.Identity.Controllers
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    list = list.Where(w => w.Title.Contains(search));
+                    list = list.Where(w => w.Title.ToLower().Contains(search.ToLower()));
                 }
 
                 return Content(JsonSerializer.Serialize(list.Select(w => new DomainList(w)).ToList()), "application/json", Encoding.UTF8);

@@ -15,6 +15,7 @@ namespace Manage.Data.Management.Models
         public int? ParentId { get; set; }
         public required string Username { get; set; }
         public required string Password { get; set; }   // Hashed
+        public string? Token { get; set; }
         public string? ProfilePic { get; set; }
         [EmailAddress]
         public string? Email { get; set; }
@@ -29,8 +30,8 @@ namespace Manage.Data.Management.Models
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
         public DateTime LastLoginDate { get; set; } = DateTime.Now;
         public virtual User? Parent { get; set; }
-        public virtual IEnumerable<UserRole> UserRoles { get; set; } = Enumerable.Empty<UserRole>();
-        public virtual IEnumerable<UACC> UACCs { get; set; } = Enumerable.Empty<UACC>();
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
+        public virtual ICollection<UACC> UACCs { get; set; } = new List<UACC>();
 
     }
 

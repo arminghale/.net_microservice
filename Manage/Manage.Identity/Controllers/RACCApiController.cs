@@ -8,11 +8,12 @@ using Asp.Versioning;
 using Manage.Data.Management.DTO.Role;
 using Manage.Data.Management.Models;
 using Manage.Data.Public.Authorization;
+using Manage.Identity.Middlewares;
 
 
 namespace Manage.Identity.Controllers
 {
-    [ClaimRequirement]
+    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     //[Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]

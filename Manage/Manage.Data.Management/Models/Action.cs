@@ -20,8 +20,7 @@ namespace Manage.Data.Management.Models
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
         public virtual ActionGroup? ActionGroup { get; set; }
-        public virtual IEnumerable<UserRole>? UserRoles { get; set; } = Enumerable.Empty<UserRole>();
-        public virtual IEnumerable<RACC>? RACCs { get; set; } = Enumerable.Empty<RACC>();
-        public virtual IEnumerable<UACC>? UACCs { get; set; } = Enumerable.Empty<UACC>();
+        public virtual ICollection<RACC>? RACCs { get; set; } = new List<RACC>();
+        public virtual ICollection<UACC>? UACCs { get; set; } = new List<UACC>();
     }
 }

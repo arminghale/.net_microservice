@@ -19,6 +19,6 @@ namespace Manage.Data.Management.Models
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
 
         public virtual Service? Service { get; set; }
-        public virtual IEnumerable<Action> Actions { get; set; } = Enumerable.Empty<Action>();
+        public virtual ICollection<Action> Actions { get; set; } = new List<Action>();
     }
 }

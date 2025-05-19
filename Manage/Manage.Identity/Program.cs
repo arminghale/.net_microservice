@@ -14,10 +14,14 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddDbContext<Context>(options => options
                         .UseNpgsql(Environment.GetEnvironmentVariable("POSTGRES_CONNECTION")));
 
+builder.Services.AddScoped<ICache>(provider => new CacheService(Environment.GetEnvironmentVariable("REDIS_CONNECTION")));
+
 // Respository scopes
+builder.Services.AddScoped<IAccess, AccessEF>();
 builder.Services.AddScoped<ITenant, TenantEF>();
 builder.Services.AddScoped<IDomain, DomainEF>();
 builder.Services.AddScoped<IDomainValue, DomainValueEF>();
@@ -31,7 +35,7 @@ builder.Services.AddScoped<IService, ServiceEF>();
 builder.Services.AddScoped<IUACC, UACCEF>();
 builder.Services.AddScoped<IUserRole, UserRoleEF>();
 
-builder.Services.AddScoped<ICache>(provider => new CacheService(Environment.GetEnvironmentVariable("REDIS_CONNECTION")));
+
 
 builder.Services.AddSingleton<IFile>(provider => new Files(
     Environment.GetEnvironmentVariable("MINIO_CONNECTION"),

@@ -14,13 +14,18 @@ namespace Manage.Data.Management.Repository
         Task<User?> GetByEmail(string email);
         Task<User?> GetByUsername(string username);
         Task<User?> GetByRefrence(string refrence);
+        Task<User?> GetByToken(string token);
         Task<User?> CheckLogin(string username, string password);
+
+        string TokenGenerator();
     }
     public class UserEF : IUser
     {
         private readonly Context _context;
         private readonly ICache _cache;
-        public UserEF(Context context, CacheService cache)
+        private readonly int expirationMin = int.Parse(Environment.GetEnvironmentVariable("UserCacheExpirationMin"));
+
+        public UserEF(Context context, ICache cache)
         {
             _context = context;
             _cache = cache;
@@ -63,6 +68,7 @@ namespace Manage.Data.Management.Repository
                 if (item != null)
                 {
                     _context.User.Remove(item);
+                    _cache.RemoveData($"USER_{item.Id}");
                 }
                 return true;
             }
@@ -113,6 +119,7 @@ namespace Manage.Data.Management.Repository
                 {
                     item.Delete = true;
                     _context.Update(item);
+                    _cache.RemoveData($"USER_{id}");
                 }
                 return true;
             }
@@ -133,6 +140,7 @@ namespace Manage.Data.Management.Repository
             try
             {
                 _context.Remove(item);
+                _cache.RemoveData($"USER_{item.Id}");
                 return true;
             }
             catch (Exception)
@@ -150,7 +158,7 @@ namespace Manage.Data.Management.Repository
 
         async Task<User?> ICommon<User>.GetByID(int id)
         {
-            User? item = _cache.GetData<User>($"USER_{id}");
+            User? item = _cache.GetData<User>($"USER_{id}", expirationMin);
             if (item == null)
             {
                 item = await _context.User
@@ -161,7 +169,7 @@ namespace Manage.Data.Management.Repository
                 {
                     return null;
                 }
-                _cache.SetData<User>($"USER_{id}", item, 2);
+                _cache.SetData<User>($"USER_{id}", item, expirationMin);
             }
             return item;  
         }
@@ -185,6 +193,7 @@ namespace Manage.Data.Management.Repository
             try
             {
                 _context.Update(item);
+                _cache.RemoveData($"USER_{item.Id}");
                 return true;
             }
             catch (Exception)
@@ -236,6 +245,16 @@ namespace Manage.Data.Management.Repository
         public async Task<User?> GetByRefrence(string refrence)
         {
             return await _context.User.FirstOrDefaultAsync(w => string.Equals(w.RefrenceId.ToLower(), refrence.ToLower()));
+        }
+
+        public async Task<User?> GetByToken(string token)
+        {
+            return await _context.User.FirstOrDefaultAsync(w => string.Equals(w.Token.ToLower(), token.ToLower()));
+        }
+
+        public string TokenGenerator()
+        {
+            return Guid.NewGuid().ToString().Replace("-", "").ToUpper();
         }
     }
 }

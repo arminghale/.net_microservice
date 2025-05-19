@@ -84,6 +84,8 @@ ON "Action" ("ActionGroupId");
 CREATE TABLE IF NOT EXISTS "Tenant" (
 	"Id" int GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1) NOT NULL PRIMARY KEY,
 	"Title" TEXT NOT NULL,
+	"AdminRoles" TEXT DEFAULT '',
+	"RegisterRoles" TEXT DEFAULT '',
 	"Additional" TEXT,
 	"Delete" BOOLEAN DEFAULT FALSE,
 	"CreateDate" TIMESTAMP DEFAULT NOW(),
@@ -109,12 +111,14 @@ CREATE TABLE IF NOT EXISTS "User" (
     		REFERENCES "User" ("Id") ON DELETE CASCADE,
 	"Username" TEXT,
 	"Password" TEXT,
+	"Token" TEXT,
 	"Email" TEXT,
-	"EmailValidation" TEXT,
+	"EmailValidation" TEXT DEFAULT 'NO',
 	"Phonenumber" TEXT,
-	"PhonenumberValidation" TEXT,
-	"Validation" TEXT,
+	"PhonenumberValidation" TEXT DEFAULT 'NO',
+	"Validation" TEXT DEFAULT 'NO',
 	"RefrenceId" TEXT,
+	"ProfilePic" TEXT,
 	"Delete" BOOLEAN DEFAULT FALSE,
 	"CreateDate" TIMESTAMP DEFAULT NOW(),
 	"LastUpdateDate" TIMESTAMP DEFAULT NOW(),
@@ -188,13 +192,13 @@ CREATE TABLE IF NOT EXISTS "UACC" (
 	"CreateDate" TIMESTAMP DEFAULT NOW(),
 	"LastUpdateDate" TIMESTAMP DEFAULT NOW()
 );
-CREATE INDEX IF NOT EXISTS IX_RACC_Id
+CREATE INDEX IF NOT EXISTS IX_UACC_Id
 ON "UACC" ("Id");
-CREATE INDEX IF NOT EXISTS IX_RACC_TenantId
+CREATE INDEX IF NOT EXISTS IX_UACC_TenantId
 ON "UACC" ("TenantId");
-CREATE INDEX IF NOT EXISTS IX_RACC_ActionId
+CREATE INDEX IF NOT EXISTS IX_UACC_ActionId
 ON "UACC" ("ActionId");
-CREATE INDEX IF NOT EXISTS IX_RACC_UserId
+CREATE INDEX IF NOT EXISTS IX_UACC_UserId
 ON "UACC" ("UserId");
 ---------------------
 
@@ -203,13 +207,21 @@ INSERT INTO "Role" ("Title")
 SELECT 'admin'
 WHERE NOT EXISTS (SELECT 1 FROM "Role" WHERE "Title" = 'admin');
 
-INSERT INTO "User" ("Username", "Password") 
-SELECT 'admin', 'admin'
+INSERT INTO "Role" ("Title") 
+SELECT 'none'
+WHERE NOT EXISTS (SELECT 1 FROM "Role" WHERE "Title" = 'none');
+
+INSERT INTO "User" ("Username", "Password", "RefrenceId", "Token") 
+SELECT 'admin', 'admin', 'admin', '07AB6F4E6774467EBC8698B154EFB4D8'
 WHERE NOT EXISTS (SELECT 1 FROM "User" WHERE "Username" = 'admin');
 
-INSERT INTO "UserRole" ("UserId","RoleId") 
-SELECT (SELECT "User"."Id" FROM "User" WHERE "Username" = 'admin'), (SELECT "Role"."Id" FROM "Role" WHERE "Title" = 'admin')
-WHERE NOT EXISTS (SELECT 1 FROM "UserRole" WHERE "RoleId" = (SELECT "Role"."Id" FROM "Role" WHERE "Title" = 'admin') AND "UserId" = (SELECT "User"."Id" FROM "User" WHERE "Username" = 'admin'));
+INSERT INTO "Tenant" ("Title","AdminRoles") 
+SELECT 'default', (SELECT "Role"."Id" FROM "Role" WHERE "Title" = 'admin')
+WHERE NOT EXISTS (SELECT 1 FROM "Tenant" WHERE "Title" = 'default');
+
+INSERT INTO "UserRole" ("UserId","RoleId","TenantId") 
+SELECT (SELECT "User"."Id" FROM "User" WHERE "Username" = 'admin'), (SELECT "Role"."Id" FROM "Role" WHERE "Title" = 'admin'), (SELECT "Tenant"."Id" FROM "Tenant" WHERE "Title" = 'default')
+WHERE NOT EXISTS (SELECT 1 FROM "UserRole" WHERE "RoleId" = (SELECT "Role"."Id" FROM "Role" WHERE "Title" = 'admin') AND "UserId" = (SELECT "User"."Id" FROM "User" WHERE "Username" = 'admin') AND "TenantId" = (SELECT "Tenant"."Id" FROM "Tenant" WHERE "Title" = 'default'));
 
 
 INSERT INTO "Service" ("Title") 
@@ -462,12 +474,14 @@ WHERE NOT EXISTS (SELECT 1 FROM "Action" WHERE "ActionGroupId" = (SELECT "Action
 DO $$
 DECLARE
     role_id int;
+	tenant_id int;
     action_row RECORD;
 BEGIN
     SELECT "Id" INTO role_id FROM "Role" WHERE "Title" = 'admin';
+    SELECT "Id" INTO tenant_id FROM "Tenant" WHERE "Title" = 'default';
     FOR action_row IN SELECT "Id" FROM "Action" LOOP
-        INSERT INTO "RACC" ("RoleId", "ActionId", "type")
-        VALUES (role_id, action_row."Id", 1)
+        INSERT INTO "RACC" ("RoleId", "ActionId", "TenantId", "type")
+        VALUES (role_id, action_row."Id", tenant_id, 1)
         ON CONFLICT DO NOTHING;
     END LOOP;
 END $$;

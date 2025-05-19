@@ -6,7 +6,7 @@ namespace Manage.Data.Management.Repository
 {
     public interface ICache
     {
-        T? GetData<T>(string key);
+        T? GetData<T>(string key, int expirationMin=-1);
 
         bool SetData<T>(string key, T value, int expirationMin);
 
@@ -21,10 +21,19 @@ namespace Manage.Data.Management.Repository
             _db = ConnectionMultiplexer.Connect(redisConfig).GetDatabase();
         }
 
-        public T? GetData<T>(string key)
+        public T? GetData<T>(string key, int expirationMin=-1)
         {
-            var value = _db.StringGet(key);
-            if (!string.IsNullOrEmpty(value))
+            RedisValue value;
+            if (expirationMin>0)
+            {
+                TimeSpan expiryTime = DateTimeOffset.Now.AddMinutes((double)expirationMin).DateTime.Subtract(DateTime.Now);
+                value = _db.StringGetSetExpiry(key, expiryTime);
+            }
+            else
+            {
+                value = _db.StringGet(key);
+            }
+            if (!value.IsNullOrEmpty)
             {
                 return JsonSerializer.Deserialize<T>(value);
             }
@@ -43,7 +52,7 @@ namespace Manage.Data.Management.Repository
 
         public bool SetData<T>(string key, T value, int expirationMin)
         {
-            TimeSpan expiryTime = DateTimeOffset.Now.AddMinutes(5.0).DateTime.Subtract(DateTime.Now);
+            TimeSpan expiryTime = DateTimeOffset.Now.AddMinutes((double)expirationMin).DateTime.Subtract(DateTime.Now);
             var isSet = _db.StringSet(key, JsonSerializer.Serialize(value), expiryTime);
             return isSet;
         }

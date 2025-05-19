@@ -15,6 +15,6 @@ namespace Manage.Data.Management.Models
         public DateTime CreateDate { get; set; } = DateTime.Now;
         public DateTime LastUpdateDate { get; set; } = DateTime.Now;
 
-        public virtual IEnumerable<DomainValue> DomainValues { get; set; } = Enumerable.Empty<DomainValue>();
+        public virtual ICollection<DomainValue> DomainValues { get; set; } = new List<DomainValue>();
     }
 }

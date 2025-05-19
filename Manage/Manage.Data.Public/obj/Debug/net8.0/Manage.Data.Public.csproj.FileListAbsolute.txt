@@ -11,3 +11,16 @@ C:\Users\Armin Mohammadi\source\repos\arminghale\.net_microservice\Manage\Manage
 C:\Users\Armin Mohammadi\source\repos\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\refint\Manage.Data.Public.dll
 C:\Users\Armin Mohammadi\source\repos\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.pdb
 C:\Users\Armin Mohammadi\source\repos\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\ref\Manage.Data.Public.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\bin\Debug\net8.0\Manage.Data.Public.deps.json
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\bin\Debug\net8.0\Manage.Data.Public.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\bin\Debug\net8.0\Manage.Data.Public.pdb
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.csproj.AssemblyReference.cache
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.AssemblyInfoInputs.cache
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.AssemblyInfo.cs
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.csproj.CoreCompileInputs.cache
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.sourcelink.json
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\refint\Manage.Data.Public.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\Manage.Data.Public.pdb
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Data.Public\obj\Debug\net8.0\ref\Manage.Data.Public.dll

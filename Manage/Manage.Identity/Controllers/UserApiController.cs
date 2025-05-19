@@ -5,13 +5,14 @@ using Manage.Data.Management.Models;
 using Manage.Data.Management.Repository;
 using Manage.Data.Public;
 using Manage.Data.Public.Authorization;
+using Manage.Identity.Middlewares;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Text.Json;
 
 namespace Manage.Identity.Controllers
 {
-    [ClaimRequirement]
+    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
@@ -42,7 +43,7 @@ namespace Manage.Identity.Controllers
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    list = list.Where(w => w.Email.Contains(search) || w.Phonenumber.Contains(search));
+                    list = list.Where(w => w.Email.ToLower().Contains(search.ToLower()) || w.Phonenumber.ToLower().Contains(search.ToLower()));
                 }
 
                 return Content(JsonSerializer.Serialize(list.Select(w => new UserList(w)).ToList()), "application/json", Encoding.UTF8);
@@ -117,6 +118,7 @@ namespace Manage.Identity.Controllers
                     Phonenumber = postUser.phonenumber,
                     Username = postUser.username,
                     Password = Hash.Hashing(postUser.password),
+                    Token = _user.TokenGenerator(),
                     Email = postUser.email,
                     EmailValidation = postUser.emailvalidation ? "YES" : "NO",
                     PhonenumberValidation = postUser.phonevalidation ? "YES" : "NO",
