@@ -1,8 +1,8 @@
 ﻿using Asp.Versioning;
-using Manage.Data.Management.DTO.General;
-using Manage.Data.Management.DTO.User;
-using Manage.Data.Management.Models;
-using Manage.Data.Management.Repository;
+using Manage.Data.Identity.DTO.General;
+using Manage.Data.Identity.DTO.User;
+using Manage.Data.Identity.Models;
+using Manage.Data.Identity.Repository;
 using Manage.Data.Public;
 using Manage.Data.Public.Authorization;
 using Manage.Identity.Middlewares;
@@ -12,7 +12,6 @@ using System.Text.Json;
 
 namespace Manage.Identity.Controllers
 {
-    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
@@ -143,7 +142,7 @@ namespace Manage.Identity.Controllers
 
                 foreach (var item in postUser.roles)
                 {
-                    await _userRole.Insert(new Data.Management.Models.UserRole
+                    await _userRole.Insert(new Data.Identity.Models.UserRole
                     {
                         TenantId = item.tenantid,
                         RoleId = item.roleid,
@@ -229,7 +228,7 @@ namespace Manage.Identity.Controllers
                 }
                 _user.Update(user);
 
-                foreach (var item in user.UserRoles.Except(putUser.roles.Select(w => new Data.Management.Models.UserRole
+                foreach (var item in user.UserRoles.Except(putUser.roles.Select(w => new Data.Identity.Models.UserRole
                 {
                     TenantId = w.tenantid,
                     RoleId = w.roleid,
@@ -243,7 +242,7 @@ namespace Manage.Identity.Controllers
                 {
                     if (!user.UserRoles.Any(w => w.TenantId == item.tenantid && w.RoleId == item.roleid))
                     {
-                        await _userRole.Insert(new Data.Management.Models.UserRole
+                        await _userRole.Insert(new Data.Identity.Models.UserRole
                         {
                             TenantId = item.tenantid,
                             RoleId = item.roleid,

@@ -1,3 +1,6 @@
 .vs
 .env
 data/
+/Manage/**/Properties/
+/Manage/**/bin/
+/Manage/**/obj/

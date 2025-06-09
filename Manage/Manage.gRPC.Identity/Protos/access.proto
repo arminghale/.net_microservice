@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "Manage.gRPC.Identity";
+
+package accesses;
+
+service Accesses {
+  rpc SendAccess (AccessRequest) returns (AccessResponse);
+}
+
+message AccessRequest {
+  string Token = 1;
+  int32 TenantId = 2;
+}
+
+message AccessResponse{
+	repeated AccessModel Accesses = 1;
+}
+
+message AccessModel {
+  int32 UserId = 1;
+  int32 ActionId = 2;
+  int32 ActionGroupId = 3;
+  int32 ServiceId = 4;
+  int32 TenantId = 5;
+  int32 type = 6;
+  string ActionName = 7;
+  string ActionURL = 8;
+  string ActionType = 9;
+}

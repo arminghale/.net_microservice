@@ -4,6 +4,13 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5180"
+    },
+    "https": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "POSTGRES_PASSWORD": "GIGALIB258",
@@ -21,25 +28,15 @@
         "SMS_USERNAME": "arminghaleh",
         "SMS_PASSWORD": "bernyamin",
         "SMS_PHONENUMBER": "5000299557223",
-        "POSTGRES_CONNECTION": "Host=172.19.35.100;Port=5432;User ID=admin;Password=GIGALIB258;Database=Identity",
-        "REDIS_CONNECTION": "172.19.35.100:6379",
-        "MINIO_CONNECTION": "172.19.35.100:9000",
-        "KAFKA_CONNECTION": "172.19.35.100:9092",
+        "POSTGRES_CONNECTION": "Host=172.19.35.100;Port=2002;User ID=admin;Password=GIGALIB258;Database=Identity",
+        "REDIS_CONNECTION": "172.19.35.100:2001",
+        "MINIO_CONNECTION": "172.19.35.100:2005",
+        "KAFKA_CONNECTION": "172.19.35.100:2003",
         "AccessCacheExpirationMin": "20",
         "SMSExpirationMin": "2",
         "EmailExpirationMin": "5",
         "TokenExpirationMin": "4300",
         "UserCacheExpirationMin": "20"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5180"
-    },
-    "https": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7195;http://localhost:5180"

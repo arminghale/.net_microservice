@@ -1,20 +1,21 @@
 ﻿services:
-  # kafka:
-  #   image: apache/kafka:latest
-  #   container_name: kafka
-  #   ports:
-  #     - "9092:9092"
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "echo 'test-message' | kafka-console-producer.sh --broker-list localhost:9092 --topic health-check-topic && kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic health-check-topic --from-beginning --max-messages 1 | grep 'test-message'"]
-  #     interval: 15s
-  #     timeout: 10s
-  #     retries: 3
+  kafka:
+    image: apache/kafka:latest
+    container_name: kafka
+    ports:
+      - "${KAFKA_PORT}:9092"
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'test-message' | kafka-console-producer.sh --broker-list localhost:9092 --topic health-check-topic && kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic health-check-topic --from-beginning --max-messages 1 | grep 'test-message'"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+    profiles: ["kafka"]
 
   redis:
     image: redis:latest
     container_name: redis
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -22,78 +23,151 @@
       retries: 50
       start_period: 30s
     restart: always
+    profiles: ["redis"]
 
   postgres:
     image: postgres:latest
     container_name: postgres
     volumes:
       -  db-data:/var/lib/postgresql/data
-      - ./DB/Management.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./DB/Script:/docker-entrypoint-initdb.d/:ro
+      - ./DB/SQL:/SQL/:ro
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_DB: ${POSTGRES_DATABASE}
+      ALL_DATABASES: ${POSTGRES_DATABASE_Identity},${POSTGRES_DATABASE_Reminder}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DATABASE}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DATABASE_Identity}"]
       interval: 10s
       retries: 5
       start_period: 30s
     restart: always
+    profiles: ["postgres"]
 
-  # minio:
-  #   image: quay.io/minio/minio
-  #   container_name: minio
-  #   environment:
-  #     MINIO_ROOT_USER: ${MINIO_USER}
-  #     MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
-  #   volumes:
-  #     - ./data/minio:/data
-  #   ports:
-  #     - "9000:9000"
-  #     - "9001:9001"
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-  #     interval: 30s
-  #     timeout: 20s
-  #     retries: 3
-  #   command: server /data --console-address ":9001"
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    volumes:
+      - ./data/minio:/data
+    ports:
+      - "${MINIO_PORT_HTTP}:9000"
+      - "${MINIO_PORT_HTTPS}:9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    command: server /data --console-address ":9001"
+    profiles: ["minio"]
 
-#  manage_identity:
-#    build:
-#      context: .
-#      dockerfile: Manage/Manage.Identity/Dockerfile
-#    environment:
-#      POSTGRES_CONNECTION: "Host=postgres;Port=5432;User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=${POSTGRES_DATABASE}"
-#      REDIS_CONNECTION: "redis:6379"
-#      MINIO_CONNECTION: "minio:9000"
-#      MINIO_ACCESSKEY: ${MINIO_USER}
-#      MINIO_SECRETKEY: ${MINIO_PASSWORD}
-#      KAFKA_CONNECTION: "kafka:9092"
-#      JWT_AUDIENCE: ${JWT_AUDIENCE}
-#      JWT_ISSUER: ${JWT_ISSUER}
-#      JWT_KEY: ${JWT_KEY}
-#      EMAIL_CREDENTIALS: ${EMAIL_CREDENTIALS}
-#      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
-#      EMAIL_HOST: ${EMAIL_HOST}
-#      EMAIL_NAME: ${EMAIL_NAME}
-#      SMS_USERNAME: ${SMS_USERNAME}
-#      SMS_PASSWORD: ${SMS_PASSWORD}
-#      SMS_PHONENUMBER: ${SMS_PHONENUMBER}
-#    depends_on:
-#      # kafka:
-#      #   condition: service_healthy
-#      # redis:
-#      #   condition: service_healthy
-#      postgres:
-#        condition: service_healthy
-#      # minio:
-#      #   condition: service_healthy
-#    ports:
-#      - "5000:8080"
-#      - "5001:8081"
+  manage_identity:
+    build:
+      context: .
+      dockerfile: Manage/Manage.Identity/Dockerfile
+    environment:
+      POSTGRES_CONNECTION: "Host=postgres;Port=${POSTGRES_PORT};User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=${POSTGRES_DATABASE_Identity}"
+      REDIS_CONNECTION: "redis:${REDIS_PORT}"
+      MINIO_CONNECTION: "minio:${MINIO_PORT_HTTPS}"
+      MINIO_ACCESSKEY: ${MINIO_USER}
+      MINIO_SECRETKEY: ${MINIO_PASSWORD}
+      KAFKA_CONNECTION: "kafka:${KAFKA_PORT}"
+      JWT_AUDIENCE: ${JWT_AUDIENCE}
+      JWT_ISSUER: ${JWT_ISSUER}
+      JWT_KEY: ${JWT_KEY}
+      EMAIL_CREDENTIALS: ${EMAIL_CREDENTIALS}
+      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_NAME: ${EMAIL_NAME}
+      SMS_USERNAME: ${SMS_USERNAME}
+      SMS_PASSWORD: ${SMS_PASSWORD}
+      SMS_PHONENUMBER: ${SMS_PHONENUMBER}
+      AccessCacheExpirationMin: ${AccessCacheExpirationMin}
+      UserCacheExpirationMin: ${UserCacheExpirationMin}
+      SMSExpirationMin: ${SMSExpirationMin}
+      EmailExpirationMin: ${EmailExpirationMin}
+      TokenExpirationMin: ${TokenExpirationMin}
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    ports:
+      - "${IDENTITY_PORT_HTTP}:8080"
+      - "${IDENTITY_PORT_HTTP}:8081"
+    profiles: ["identity"]
+
+  manage_grpc_identity:
+    build:
+      context: .
+      dockerfile: Manage/Manage.gRPC.Identity/Dockerfile
+    environment:
+      POSTGRES_CONNECTION: "Host=postgres;Port=${POSTGRES_PORT};User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=${POSTGRES_DATABASE_Identity}"
+      REDIS_CONNECTION: "redis:${REDIS_PORT}"
+      UserCacheExpirationMin: ${UserCacheExpirationMin}
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${GRPC_IDENTITY_PORT_HTTP}:8080"
+      - "${GRPC_IDENTITY_PORT_HTTPS}:8081"
+    profiles: ["grpc_identity"]
+
+  manage_reminder:
+    build:
+      context: .
+      dockerfile: Manage/Manage.Reminder/Dockerfile
+    environment:
+      POSTGRES_CONNECTION: "Host=postgres;Port=${POSTGRES_PORT};User ID=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=${POSTGRES_DATABASE_Reminder}"
+      REDIS_CONNECTION: "redis:${REDIS_PORT}"
+      MINIO_CONNECTION: "minio:${MINIO_PORT_HTTPS}"
+      MINIO_ACCESSKEY: ${MINIO_USER}
+      MINIO_SECRETKEY: ${MINIO_PASSWORD}
+      KAFKA_CONNECTION: "kafka:${KAFKA_PORT}"
+      JWT_AUDIENCE: ${JWT_AUDIENCE}
+      JWT_ISSUER: ${JWT_ISSUER}
+      JWT_KEY: ${JWT_KEY}
+      EMAIL_CREDENTIALS: ${EMAIL_CREDENTIALS}
+      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
+      EMAIL_HOST: ${EMAIL_HOST}
+      EMAIL_NAME: ${EMAIL_NAME}
+      SMS_USERNAME: ${SMS_USERNAME}
+      SMS_PASSWORD: ${SMS_PASSWORD}
+      SMS_PHONENUMBER: ${SMS_PHONENUMBER}
+      AccessCacheExpirationMin: ${AccessCacheExpirationMin}
+      UserCacheExpirationMin: ${UserCacheExpirationMin}
+      SMSExpirationMin: ${SMSExpirationMin}
+      EmailExpirationMin: ${EmailExpirationMin}
+      TokenExpirationMin: ${TokenExpirationMin}
+      gRPCUser: "manage_grpc_identity:${GRPC_IDENTITY_PORT_HTTPS}"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      manage_grpc_identity:
+        condition: service_started
+      minio:
+        condition: service_healthy
+    ports:
+      - "${REMINDER_PORT_HTTP}:8080"
+      - "${REMINDER_PORT_HTTPS}:8081"
+    profiles: ["reminder"]
 
 volumes:
   db-data:
     name: postgresData
+
+  

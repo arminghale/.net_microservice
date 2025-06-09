@@ -145,10 +145,14 @@ E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
@@ -172,6 +176,8 @@ E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.IO.Hashing.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.Reactive.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\linux-arm64\native\librdkafka.so
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\linux-x64\native\alpine-librdkafka.so
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\linux-x64\native\centos8-librdkafka.so
@@ -196,9 +202,10 @@ E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\win-x86\native\vcruntime140.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\win-x86\native\zstd.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Management.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Identity.dll
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Public.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Management.pdb
+E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Identity.pdb
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Manage.Data.Public.pdb
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0\Manage.Identity.csproj.AssemblyReference.cache
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0\Manage.Identity.GeneratedMSBuildEditorConfig.editorconfig
@@ -225,10 +232,3 @@ E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0\Manage.Identity.pdb
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0\Manage.Identity.genruntimeconfig.cache
 E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\obj\Debug\net8.0\ref\Manage.Identity.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
-E:\Projects\arminghale\.net_microservice\Manage\Manage.Identity\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

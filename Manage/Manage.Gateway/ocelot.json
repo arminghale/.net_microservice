@@ -1,0 +1,106 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/authapi/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7195
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/api/v1/authapi/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Metadata": {
+        "public": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/domainvalueapi/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7195
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/api/v1/domainvalueapi/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Metadata": {
+        "public": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/domainapi/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7195
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/api/v1/domainapi/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Metadata": {
+        "public": "true"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/{tenantid}/subscriptionapi/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7235
+        }
+      ],
+      "UpstreamPathTemplate": "/subscription/api/v1/{tenantid}/subscriptionapi/{everything}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Metadata": {
+        "public": "true"
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/v1/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7195
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/api/v1/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "Priority": 1
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7235
+        }
+      ],
+      "UpstreamPathTemplate": "/subscription/api/v1/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000",
+    "RateLimitOptions": {
+      "EnableRateLimiting": true,
+      "QuotaExceededMessage": "Too many requests!",
+      "HttpStatusCode": 429
+    }
+  }
+}

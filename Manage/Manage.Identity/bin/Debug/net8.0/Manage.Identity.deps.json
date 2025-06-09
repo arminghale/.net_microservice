@@ -9,7 +9,7 @@
       "Manage.Identity/1.0.0": {
         "dependencies": {
           "Asp.Versioning.Mvc.ApiExplorer": "8.1.0",
-          "Manage.Data.Management": "1.0.0",
+          "Manage.Data.Identity": "1.0.0",
           "Manage.Data.Public": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.11",
           "Microsoft.AspNetCore.Mvc": "2.3.0",
@@ -1802,7 +1802,7 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
-      "Manage.Data.Management/1.0.0": {
+      "Manage.Data.Identity/1.0.0": {
         "dependencies": {
           "Confluent.Kafka": "2.6.1",
           "Manage.Data.Public": "1.0.0",
@@ -1813,7 +1813,7 @@
           "StackExchange.Redis": "2.8.24"
         },
         "runtime": {
-          "Manage.Data.Management.dll": {
+          "Manage.Data.Identity.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -3157,7 +3157,7 @@
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
     },
-    "Manage.Data.Management/1.0.0": {
+    "Manage.Data.Identity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

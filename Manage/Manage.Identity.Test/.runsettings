@@ -1,0 +1,16 @@
+<RunSettings>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <POSTGRES_CONNECTION>Host=172.19.35.100;Port=5432;User ID=admin;Password=GIGALIB258;Database=Identity_Test</POSTGRES_CONNECTION>
+		<REDIS_CONNECTION>172.19.35.100:6379</REDIS_CONNECTION>
+		<JWT_AUDIENCE>websgram.ir</JWT_AUDIENCE>
+		<JWT_ISSUER>websgram.ir</JWT_ISSUER>
+		<JWT_KEY>5ec8d368685213e102589e866744eefd96d664b1dcd78484874569d36408ec90207132a9249932086ec45cb9e9540d87bc1c503841aa15fc2681469246f74cc58be0f06cd21c2e3b113abc87c966079c9e0a2aadd16200d5aa6754a1915cd01e2cecd5249dc049006f0838e3ffa4f79e5dd6561ffc4f561be05710e860c5c9b7ce000cfd44f9456ae2eddab64721a623ecb13ae48c0fa3b5d4158de413d85d60994a511c69ce0f2a065a3809674aad1cc506b79cd8cde4d8e0cebea5498875ad9232032837c119b56c20a05b25224e5cc02fa84406edd2883c1f6cfde3cd598cde959fc2c2086a0e449373c235e2ed12da6401d11b3d5f779257c2d620cd4a87</JWT_KEY>
+		<UserCacheExpirationMin>20</UserCacheExpirationMin>
+		<AccessCacheExpirationMin>20</AccessCacheExpirationMin>
+		<SMSExpirationMin>2</SMSExpirationMin>
+		<EmailExpirationMin>5</EmailExpirationMin>
+		<TokenExpirationMin>4300</TokenExpirationMin>
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

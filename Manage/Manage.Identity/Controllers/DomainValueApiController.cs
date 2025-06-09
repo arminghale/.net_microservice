@@ -1,8 +1,8 @@
 ﻿using Asp.Versioning;
-using Manage.Data.Management.DTO.DomainValue;
-using Manage.Data.Management.DTO.General;
-using Manage.Data.Management.Models;
-using Manage.Data.Management.Repository;
+using Manage.Data.Identity.DTO.DomainValue;
+using Manage.Data.Identity.DTO.General;
+using Manage.Data.Identity.Models;
+using Manage.Data.Identity.Repository;
 using Manage.Data.Public;
 using Manage.Data.Public.Authorization;
 using Manage.Identity.Middlewares;
@@ -14,7 +14,6 @@ using System.Text.Json;
 
 namespace Manage.Identity.Controllers
 {
-    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]

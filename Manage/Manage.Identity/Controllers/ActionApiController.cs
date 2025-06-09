@@ -1,19 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Manage.Data.Management.Repository;
+using Manage.Data.Identity.Repository;
 using System.Text;
 using System.Text.Json;
-using Manage.Data.Management.DTO.General;
+using Manage.Data.Identity.DTO.General;
 using Asp.Versioning;
-using Manage.Data.Management.DTO.Action;
-using Action = Manage.Data.Management.Models.Action;
+using Manage.Data.Identity.DTO.Action;
+using Action = Manage.Data.Identity.Models.Action;
 using Manage.Data.Public.Authorization;
 using Manage.Identity.Middlewares;
 
 
 namespace Manage.Identity.Controllers
 {
-    [TypeFilter(typeof(AuthorizationFilter))]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]

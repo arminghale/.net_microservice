@@ -1,8 +1,8 @@
 ﻿using Asp.Versioning;
-using Manage.Data.Management.DTO.General;
-using Manage.Data.Management.DTO.User;
-using Manage.Data.Management.Models;
-using Manage.Data.Management.Repository;
+using Manage.Data.Identity.DTO.General;
+using Manage.Data.Identity.DTO.User;
+using Manage.Data.Identity.Models;
+using Manage.Data.Identity.Repository;
 using Manage.Data.Public;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -290,7 +290,7 @@ namespace Manage.Identity.Controllers
                     var roles = tenant.RegisterRoles.Split(',').Select(w => int.Parse(w));
                     foreach (var item in roles)
                     {
-                        await _userRole.Insert(new Data.Management.Models.UserRole
+                        await _userRole.Insert(new Data.Identity.Models.UserRole
                         {
                             RoleId = item,
                             UserId = user.Id,
@@ -328,7 +328,7 @@ namespace Manage.Identity.Controllers
                     return BadRequest(new { message = "Tenant not found" });
                 }
 
-                User user = await _user.CheckLogin(login.username, login.password);
+                User user = await _user.CheckLogin(login.username, Hash.Hashing(login.password));
                 if (user == null || user.Delete)
                 {
                     return BadRequest(new { message = "Username or password is wrong" });
@@ -550,6 +550,7 @@ namespace Manage.Identity.Controllers
             //    await _user.Save();
             //}
             claims.Add(new Claim("tenant", tenantid.ToString()));
+            claims.Add(new Claim("uid", user.Id.ToString()));
             if (!string.IsNullOrEmpty(user.Token))
             {
                 claims.Add(new Claim(ClaimTypes.Authentication, user.Token));

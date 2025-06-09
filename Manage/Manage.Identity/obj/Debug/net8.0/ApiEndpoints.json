@@ -25,7 +25,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -34,7 +34,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.Action.ActionList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.Action.ActionList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -60,7 +60,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -91,7 +91,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -100,7 +100,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.Action.ActionList",
+        "Type": "Manage.Data.Identity.DTO.Action.ActionList",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -131,7 +131,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -167,7 +167,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -198,7 +198,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -234,7 +234,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -243,7 +243,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.ActionGroup.ActionGroupList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.ActionGroup.ActionGroupList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -269,7 +269,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -300,7 +300,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -309,7 +309,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.ActionGroup.ActionGroupOne",
+        "Type": "Manage.Data.Identity.DTO.ActionGroup.ActionGroupOne",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -340,7 +340,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -376,7 +376,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -407,7 +407,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -448,7 +448,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -507,7 +507,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -561,7 +561,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -615,7 +615,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -655,7 +655,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -673,7 +673,7 @@
         "StatusCode": 200
       },
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -709,7 +709,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -727,7 +727,7 @@
         "StatusCode": 200
       },
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -763,7 +763,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -803,7 +803,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -812,7 +812,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.Domain.DomainList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.Domain.DomainList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -838,7 +838,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -869,7 +869,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -878,7 +878,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.Domain.DomainOne",
+        "Type": "Manage.Data.Identity.DTO.Domain.DomainOne",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -909,7 +909,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -945,7 +945,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -976,7 +976,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1022,7 +1022,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1031,7 +1031,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.DomainValue.DomainValueList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.DomainValue.DomainValueList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1072,7 +1072,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1103,7 +1103,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1112,7 +1112,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.Models.DomainValue",
+        "Type": "Manage.Data.Identity.Models.DomainValue",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1163,7 +1163,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1199,7 +1199,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1230,7 +1230,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1266,7 +1266,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1297,7 +1297,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1306,7 +1306,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.Role.RoleList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.Role.RoleList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1332,7 +1332,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1363,7 +1363,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1372,7 +1372,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.Role.RoleList",
+        "Type": "Manage.Data.Identity.DTO.Role.RoleList",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1403,7 +1403,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1439,7 +1439,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1470,7 +1470,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1501,7 +1501,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1510,7 +1510,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.Service.ServiceList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.Service.ServiceList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1536,7 +1536,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1567,7 +1567,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1576,7 +1576,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.Service.ServiceOne",
+        "Type": "Manage.Data.Identity.DTO.Service.ServiceOne",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1607,7 +1607,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1643,7 +1643,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1674,7 +1674,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1705,7 +1705,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1714,7 +1714,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.Tenant.TenantList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.Tenant.TenantList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1740,7 +1740,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1771,7 +1771,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1780,7 +1780,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.Tenant.TenantOne",
+        "Type": "Manage.Data.Identity.DTO.Tenant.TenantOne",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1811,7 +1811,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1847,7 +1847,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1878,7 +1878,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1914,7 +1914,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1945,7 +1945,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1954,7 +1954,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Management.DTO.User.UserList, Manage.Data.Management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Manage.Data.Identity.DTO.User.UserList, Manage.Data.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1980,7 +1980,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2011,7 +2011,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2020,7 +2020,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Manage.Data.Management.DTO.User.UserOneAdmin",
+        "Type": "Manage.Data.Identity.DTO.User.UserOneAdmin",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2051,7 +2051,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2087,7 +2087,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2118,7 +2118,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Manage.Data.Management.DTO.General.BadrequestResponse",
+        "Type": "Manage.Data.Identity.DTO.General.BadrequestResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",

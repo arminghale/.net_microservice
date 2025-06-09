@@ -1,0 +1,82 @@
+[
+  {
+    "Name": "gRPC.Test",
+    "Projects": [
+      {
+        "Path": "Manage.gRPC.Identity\\Manage.gRPC.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Client.gRPC\\Client.gRPC.csproj",
+        "Action": "Start",
+        "DebugTarget": "Client.gRPC"
+      }
+    ]
+  },
+  {
+    "Name": "Reminder",
+    "Projects": [
+      {
+        "Path": "Manage.gRPC.Identity\\Manage.gRPC.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.Reminder\\Manage.Reminder.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.Gateway\\Manage.Gateway.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  },
+  {
+    "Name": "Identity",
+    "Projects": [
+      {
+        "Path": "Manage.Identity\\Manage.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.gRPC.Identity\\Manage.gRPC.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.Gateway\\Manage.Gateway.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  },
+  {
+    "Name": "Reminder&Identity",
+    "Projects": [
+      {
+        "Path": "Manage.Identity\\Manage.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.gRPC.Identity\\Manage.gRPC.Identity.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.Reminder\\Manage.Reminder.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Manage.Gateway\\Manage.Gateway.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

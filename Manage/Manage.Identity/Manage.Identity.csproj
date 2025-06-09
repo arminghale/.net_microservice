@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Manage.Data.Management\Manage.Data.Management.csproj" />
+    <ProjectReference Include="..\Manage.Data.Identity\Manage.Data.Identity.csproj" />
     <ProjectReference Include="..\Manage.Data.Public\Manage.Data.Public.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 using Asp.Versioning;
-using Manage.Data.Management;
-using Manage.Data.Management.Repository;
+using Manage.Data.Identity;
+using Manage.Data.Identity.Repository;
 using Manage.Data.Public;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +35,6 @@ builder.Services.AddScoped<IRole, RoleEF>();
 builder.Services.AddScoped<IService, ServiceEF>();
 builder.Services.AddScoped<IUACC, UACCEF>();
 builder.Services.AddScoped<IUserRole, UserRoleEF>();
-
 
 
 builder.Services.AddSingleton<IFile>(provider => new Files(
@@ -68,23 +68,13 @@ builder.Services.AddApiVersioning(options =>
         new UrlSegmentApiVersionReader(),
         new HeaderApiVersionReader("X-Version")
     );
-}).AddApiExplorer(options =>
+})
+    .AddApiExplorer(options =>
 {
     options.GroupNameFormat = "'v'VVV";
     options.SubstituteApiVersionInUrl = true;
 });
 
-
-// Authorization policies
-builder.Services.AddAuthorization(options =>
-{
-    var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
-                JwtBearerDefaults.AuthenticationScheme);
-    defaultAuthorizationPolicyBuilder =
-    defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
-    options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
-    options.AddPolicy("realDelete", policy => policy.RequireClaim("realDelete", "1"));
-});
 
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
 {
@@ -95,21 +85,6 @@ builder.Services.AddControllers().ConfigureApiBehaviorOptions(options =>
     };
 });
 
-// Authentication schema
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.SaveToken = true;
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
-            ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER"),
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY")))
-        };
-    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -144,6 +119,7 @@ builder.Services.AddSwaggerGen(s =>
           }
         });
 });
+
 
 var app = builder.Build();
 
@@ -184,3 +160,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

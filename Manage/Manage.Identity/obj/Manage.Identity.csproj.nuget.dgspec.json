@@ -4,14 +4,14 @@
     "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Identity\\Manage.Identity.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {
+    "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\Manage.Data.Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
-        "projectName": "Manage.Data.Management",
-        "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj",
+        "projectUniqueName": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\Manage.Data.Identity.csproj",
+        "projectName": "Manage.Data.Identity",
+        "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\Manage.Data.Identity.csproj",
         "packagesPath": "C:\\Users\\Armin Mohammadi\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\obj\\",
+        "outputPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -210,8 +210,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj": {
-                "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Management\\Manage.Data.Management.csproj"
+              "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\Manage.Data.Identity.csproj": {
+                "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Identity\\Manage.Data.Identity.csproj"
               },
               "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj": {
                 "projectPath": "E:\\Projects\\arminghale\\.net_microservice\\Manage\\Manage.Data.Public\\Manage.Data.Public.csproj"
